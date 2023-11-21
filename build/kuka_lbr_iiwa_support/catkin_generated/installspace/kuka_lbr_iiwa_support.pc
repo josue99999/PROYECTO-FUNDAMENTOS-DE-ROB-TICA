@@ -1,0 +1,8 @@
+prefix=/home/josue/PROYECTO/install
+
+Name: kuka_lbr_iiwa_support
+Description: Description of kuka_lbr_iiwa_support
+Version: 0.0.0
+Cflags: 
+Libs: -L${prefix}/lib 
+Requires: 

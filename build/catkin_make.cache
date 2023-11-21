@@ -1,0 +1,2 @@
+kuka_lbr_iiwa_support
+-DCATKIN_DEVEL_PREFIX=/home/josue/PROYECTO/devel -DCMAKE_INSTALL_PREFIX=/home/josue/PROYECTO/install -G Unix Makefiles
