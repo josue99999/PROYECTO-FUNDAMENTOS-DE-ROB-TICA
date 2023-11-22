@@ -60,6 +60,12 @@ def jacobian_ur5(q, delta=0.0001):
         # Incrementar la articulacion i-esima usando un delta
         dq[i] = dq[i] + delta
 
+        if dq[6] >= 0.08:
+            dq[6] = 0.08
+        elif dq[6] <= 0.0:
+            dq[6] = 0.0
+
+        
         # Transformacion homogenea luego del incremento (q+delta)
         dT = fkine_ur5(dq)
 
@@ -95,6 +101,12 @@ def ikine_ur5(xdes, q0):
         Jinv = np.linalg.pinv(J)
         
         q = q + Jinv@e
+
+        if q[6] >= 0.08:
+            q[6] = 0.08
+        elif q[6] <= 0.0:
+            q[6] = 0.0
+
         
         #Condicion de cierre
         if (np.linalg.norm(e) < epsilon):
@@ -132,6 +144,12 @@ def ik_gradient_ur5(xdes, q0, alfa =0.05):
         J = jacobian_ur5(q, delta)
         
         q = q + alfa*(J.T@e)
+
+        if q[6] >= 0.08:
+            q[6] = 0.08
+        elif q[6] <= 0.0:
+            q[6] = 0.0
+
         
         #Condicion de cierre
         if (np.linalg.norm(e) < epsilon):

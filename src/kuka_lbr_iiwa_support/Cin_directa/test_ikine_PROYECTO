@@ -17,7 +17,7 @@ if __name__ == '__main__':
     jnames = ['joint_a1', 'joint_a2','joint_a3', 'joint_a4', 'joint_a5','joint_a6','joint_a7','joint_a8']
  
     # Desired position
-    xd = np.array([1, 1, 1])
+    xd = np.array([0.1, 0.1, 0.1])
     # Initial configuration
     q0 = np.array([0.0, 0.1, 0.1, 0.1, 0.1, 0.0, 0.0, 0.1])
     # Inverse kinematics

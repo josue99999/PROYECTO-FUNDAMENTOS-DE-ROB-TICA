@@ -26,7 +26,7 @@ if __name__ == '__main__':
     jnames = ['joint_a1', 'joint_a2','joint_a3', 'joint_a4', 'joint_a5','joint_a6','joint_a7','joint_a8']
   
     # Desired position
-    xd = np.array([1, 0, 0.8])
+    xd = np.array([0.5, 0.5, 0.5])
     # Initial configuration
     q0 = np.array([0.0, -0.42, -0.32, 0, -1.65, 0.0, 0.0, 0.5])
 
@@ -93,8 +93,7 @@ if __name__ == '__main__':
         # Log values                                                      
         fxcurrent.write(str(x[0])+' '+str(x[1]) +' '+str(x[2])+'\n')
         fxdesired.write(str(xd[0])+' '+str(xd[1])+' '+str(xd[2])+'\n')
-        fq.write(str(q[0])+" "+str(q[1])+" "+str(q[2])+" "+str(q[3])+" "+
-                 str(q[4])+" "+str(q[5])+"\n")
+        fq.write(str(q[0])+" "+str(q[1])+" "+str(q[2])+" "+str(q[3])+" "+ str(q[4])+" "+str(q[5])+" "+str(q[6])+" "+str(q[7])+ "\n")
         
         # Publish the message
         jstate.position = q

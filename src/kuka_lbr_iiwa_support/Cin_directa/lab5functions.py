@@ -59,6 +59,12 @@ def jacobian_position(q, delta=0.0001):
     for i in range(8):
         dq = q
         dq[i]=dq[i]+delta
+
+        if q[6] >= 0.08:
+            q[6] = 0.08
+        elif q[6] <= 0.0:
+            q[6] = 0.0
+
         Td=fkine_kr20(dq)
         J[0:3,i] = 1/delta * (Td[0:3,3] - T[0:3,3])
     return J
@@ -91,6 +97,12 @@ def jacobian_pose(q, delta=0.0001):
         
         # Incrementar la articulacion i-esima usando un delta
         dq[i] = dq[i] + delta
+
+
+        if dq[6] >= 0.08:
+            dq[6] = 0.08
+        elif dq[6] <= 0.0:
+            dq[6] = 0.0
 
         # Transformacion homogenea luego del incremento (q+delta)
         dT = fkine_kr20(dq)
